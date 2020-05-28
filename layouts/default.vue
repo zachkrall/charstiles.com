@@ -1,8 +1,10 @@
 <template>
   <div>
-    <Title>Char Stiles</Title>
-    <Nav />
-    <nuxt />
+    <main>
+      <Title>Char Stiles</Title>
+      <Nav />
+      <nuxt />
+    </main>
     <Subscribe />
     <Footer />
   </div>
@@ -33,8 +35,11 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 :root {
   --padding: 1em;
+  --green: #75fa4c;
 }
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -46,6 +51,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+
+  cursor: url('/cursor.png'), auto;
+}
+
+a:hover,
+button:hover,
+input[type='submit']:hover {
+  cursor: url('/pointer.png'), auto;
 }
 
 @media screen and (min-width: 700px) {
@@ -75,6 +88,14 @@ h2 {
 }
 
 p {
-  font-family: 'Roboto Mono';
+  font-family: 'Roboto Mono', Menlo, monospace;
+}
+
+.mono {
+  font-family: 'Roboto Mono', Menlo, monospace;
+}
+
+main {
+  min-height: calc(100vh - 3rem);
 }
 </style>

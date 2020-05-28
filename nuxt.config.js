@@ -15,9 +15,17 @@ export default {
   },
   loading: { color: '#fff' },
   css: [],
-  plugins: [],
+  plugins: ['~plugins/krall'],
   buildModules: [],
   modules: ['@nuxt/content'],
+  content: {
+    markdown: {
+      externalLinks: {
+        target: '_self', // disable target="_blank"
+        rel: false // disable rel="nofollow noopener"
+      }
+    }
+  },
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')

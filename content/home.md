@@ -2,6 +2,4 @@
 title: Home
 ---
 
-# Hello, Everyone
-
-## I am the home page
+Char Stiles is a computational artist

@@ -1,10 +1,15 @@
 <template>
   <div class="container">
-    <div v-if="page.type === 'collection'">
-      <Subpages :data="page.data" />
+    <div v-if="!isError">
+      <div v-if="page.type === 'collection'">
+        <Subpages :data="page.data" />
+      </div>
+      <div v-else>
+        <nuxt-content :document="page.data"></nuxt-content>
+      </div>
     </div>
     <div v-else>
-      <nuxt-content :document="page.data"></nuxt-content>
+      <h1>Error!</h1>
     </div>
   </div>
 </template>
@@ -17,10 +22,13 @@ export default {
     Subpages
   },
   async asyncData({ $content, params, error }) {
-    const slug =
+    let slug =
       params.slug === '/' || params.slug === undefined ? 'home' : params.slug
 
-    const page = await $content(slug)
+    let isError = false
+    let page = await $content(slug)
+      .sortBy('title', 'asc')
+      .sortBy('year', 'desc')
       .fetch()
       .then(data => {
         let r
@@ -35,6 +43,9 @@ export default {
           return r
         }
       })
+      .catch(err => {
+        isError = true
+      })
 
     console.log(page)
 
@@ -43,8 +54,9 @@ export default {
     }
 
     return {
+      isError,
       page,
-      title: page.data.title || capitalize(slug)
+      title: page?.data?.title || capitalize(slug)
     }
   },
   watchQuery: ['page'],

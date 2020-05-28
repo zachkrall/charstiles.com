@@ -8,7 +8,7 @@
 <style scoped>
 form {
   width: 100%;
-  background: #00ff00;
+  background: var(--green);
   display: flex;
 }
 input {

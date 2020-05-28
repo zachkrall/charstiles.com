@@ -2,7 +2,9 @@
   <nav>
     <ul>
       <li v-for="([title,url],key) in links" :key="key">
-        <nuxt-link :to="url">{{title}}</nuxt-link>
+        <nuxt-link :to="url">
+          <span>{{title}}</span>
+        </nuxt-link>
       </li>
     </ul>
   </nav>
@@ -40,5 +42,13 @@ nav ul li a {
   color: inherit;
   text-decoration: none;
   text-transform: uppercase;
+}
+nav ul li a span {
+  padding: 0.3em 0.5em;
+  margin-left: -0.5em;
+}
+nav ul li a:hover span {
+  background: var(--green);
+  border-radius: 0.25em;
 }
 </style>
