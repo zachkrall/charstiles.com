@@ -52,13 +52,13 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
-  cursor: url('/cursor.png'), auto;
+  cursor: url('/cursor.svg'), auto;
 }
 
 a:hover,
 button:hover,
 input[type='submit']:hover {
-  cursor: url('/pointer.png'), auto;
+  cursor: url('/pointer.svg'), auto;
 }
 
 @media screen and (min-width: 700px) {

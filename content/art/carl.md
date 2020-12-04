@@ -1,5 +1,6 @@
 ---
 title: CARL
+description: An AR Project
 year: 2020
 thumbnail: '/media/CARL-thumb.jpg'
 ---

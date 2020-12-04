@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       links: [
-        ['Overview', '/home'],
+        ['Home', '/home'],
         ['Art', '/art'],
         ['Talks', '/talks'],
         ['Workshops', '/workshops'],
@@ -30,9 +30,19 @@ export default {
 <style scoped>
 nav ul {
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap:wrap;
+}
+@media screen and (max-width: 700px){
+  nav ul {
+    display:block;
+  }
+  nav ul li{
+    margin-bottom:0.5em;
+  }
 }
 nav ul li {
   display: block;

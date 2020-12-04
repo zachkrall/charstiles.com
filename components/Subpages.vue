@@ -1,11 +1,12 @@
 <template>
   <div class="grid">
-    <div v-for="({path,title,thumbnail}, key) in $props.data" :key="key">
+    <div v-for="({path,title,thumbnail,description}, key) in $props.data" :key="key">
       <nuxt-link :to="path">
         <div v-if="thumbnail">
           <img :src="thumbnail" />
         </div>
         <h2>{{title}}</h2>
+        <h3 v-if="description">{{description}}</h3>
       </nuxt-link>
     </div>
   </div>
@@ -18,6 +19,10 @@ export default {
 </script>
 
 <style scoped>
+h3{
+  color:#999;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

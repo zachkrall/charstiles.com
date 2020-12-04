@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@nuxt/content": "^1.2.0",
     "nuxt": "^2.0.0",
     "tachyons": "^4.11.1"
