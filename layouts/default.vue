@@ -87,6 +87,11 @@ h2 {
   text-transform: uppercase;
 }
 
+h3{
+  opacity:0.5;
+  text-transform:uppercase;
+}
+
 p {
   font-family: 'Roboto Mono', Menlo, monospace;
 }

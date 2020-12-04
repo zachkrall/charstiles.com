@@ -15,8 +15,10 @@ export default {
 
 <style scoped>
 .image-wrapper {
-  background: #ccc;
+  /* background: #ccc; */
   max-height: 80vh;
+  margin:2em auto;
+  text-align:center;
 }
 img {
   max-width: 100%;

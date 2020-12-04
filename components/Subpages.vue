@@ -1,12 +1,14 @@
 <template>
-  <div class="grid">
+  <div :class="`grid columns-${columns}`">
     <div v-for="({path,title,thumbnail,description}, key) in $props.data" :key="key">
       <nuxt-link :to="path">
         <div v-if="thumbnail">
           <img :src="thumbnail" />
         </div>
-        <h2>{{title}}</h2>
-        <h3 v-if="description">{{description}}</h3>
+        <div>
+          <h2>{{title}}</h2>
+          <h3 v-if="description">{{description}}</h3>
+        </div>
       </nuxt-link>
     </div>
   </div>
@@ -14,20 +16,24 @@
 
 <script>
 export default {
-  props: ['data']
+  props: ['data', 'columns']
 }
 </script>
 
-<style scoped>
-h3{
-  color:#999;
-}
-
+<style scoped lang="scss">
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: var(--padding);
 }
+
+@for $i from 1 through 20 {
+  .grid.columns-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}
+
+
 @media screen and (max-width: 700px) {
   .grid {
     grid-template-columns: 1fr;
@@ -49,6 +55,7 @@ h3{
   .grid a {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: 1rem;
   }
 }
 </style>

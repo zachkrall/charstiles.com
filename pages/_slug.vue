@@ -1,8 +1,12 @@
 <template>
   <div class="container">
     <div v-if="!isError">
-      <div v-if="page.type === 'collection'">
-        <Subpages :data="page.data" />
+      <!-- IF ELSE TREE -->
+      <div v-if="page.slug === 'art'">
+       <Subpages :data="page.data" :columns="3" />
+       </div>
+      <div v-else-if="page.type === 'collection'">
+        <Subpages :data="page.data" :columns="2" />
       </div>
       <div v-else>
         <nuxt-content :document="page.data"></nuxt-content>
@@ -40,7 +44,10 @@ export default {
         } catch (e) {
           r = { type: 'page', data }
         } finally {
-          return r
+          return {
+            slug,
+            ...r
+          }
         }
       })
       .catch(err => {

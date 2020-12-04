@@ -2,7 +2,7 @@
   <footer>
     <div class="row">
       <div class="col">
-        Overview
+        <nuxt-link to="/">Overview</nuxt-link>
         <br />Art
         <br />Talks
         <br />Workshops
@@ -11,7 +11,7 @@
         <br />
       </div>
       <div class="col">
-        Twitter
+        <a href="https://twitter.com/charstiles">Twitter</a>
         <br />Instagram
         <br />Recurse Center
       </div>
